@@ -34,7 +34,7 @@ public class MetricaController {
 	public Response createMetrica(Metrica metrica) {
 		
 		Metrica nova = service.createMetrica(metrica.getNome());
-		
+		System.out.println("Xélby");
 		return Response
 				.accepted(nova)
 				//.ok(nova)
