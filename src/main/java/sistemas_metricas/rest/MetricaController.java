@@ -4,6 +4,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
@@ -16,7 +17,7 @@ import sistemas_metricas.domain.*;
 @Component
 @Produces("application/json")
 @Consumes("application/json")
-@Path("metricas")
+@Path("metricas/{id}")
 public class MetricaController {
 	
 	@Autowired
@@ -31,10 +32,11 @@ public class MetricaController {
 	}
 	
 	@POST
-	public Response createMetrica(Metrica metrica) {
-		
+	public Response createMetrica(@PathParam("id") final String identifier) {
+		System.out.println(identifier);
+		Metrica metrica=null;
 		Metrica nova = service.createMetrica(metrica.getNome());
-		System.out.println("Xélby");
+	
 		return Response
 				.accepted(nova)
 				//.ok(nova)
