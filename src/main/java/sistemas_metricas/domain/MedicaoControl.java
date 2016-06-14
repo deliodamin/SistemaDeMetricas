@@ -11,18 +11,19 @@ import sistemas_metricas.persistence.*;
 
 
 @Component
-public class MetricaControl {
+public class MedicaoControl {
 	
 	@Autowired
-	MetricaDao metricaDao;
+	MedicaoDao medicaoDAO;
 	
-	public List<Metrica> getMetricas() {
-		return this.metricaDao.getMetricas();
+	public List<Medicao> getMedicoes() {
+		return this.medicaoDAO.getMedicao();
 	}
 
-	public Metrica createMetrica(String nomeMetrica) {
-		Metrica nova = new Metrica(null,nomeMetrica, new Date());
-		metricaDao.createMetrica(nova);
+	public Medicao createMedicao(String nomeMedicao) {
+		
+		Medicao nova = new Medicao(null,nomeMedicao, new Date());
+		medicaoDAO.createMedicao(nova);
 		return nova;
 	}
 

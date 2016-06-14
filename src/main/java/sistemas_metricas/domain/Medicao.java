@@ -2,39 +2,19 @@ package sistemas_metricas.domain;
 
 import java.util.Date;
 
-public class Metrica {
+public class Medicao {
 	
 	private Long id;
 	private String nome;
 	private Date created;
-	private String medicoes;
 	
-	public Metrica() {
+	public Medicao() {
 	}
 	
-	
-	
-	public Metrica(Long id, String nome, Date created, String medicoes) {
+	public Medicao(Long id, String nome, Date created) {
 		this.id = id;
 		this.nome = nome;
 		this.created = created;
-		this.medicoes = medicoes;
-	}
-
-
-
-	public Metrica(Long id, String nome, Date created) {
-		this.id = id;
-		this.nome = nome;
-		this.created = created;
-	}
-
-	public String getMedicoes() {
-		return medicoes;
-	}
-
-	public void setMedicoes(String medicoes) {
-		this.medicoes = medicoes;
 	}
 
 	public String getNome() {

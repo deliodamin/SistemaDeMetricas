@@ -17,17 +17,17 @@ import sistemas_metricas.domain.*;
 @Component
 @Produces("application/json")
 @Consumes("application/json")
-@Path("metricas")
-public class MetricaController {
+@Path("medicao")
+public class MedicaoController {
 	
 	@Autowired
-	MetricaEXP service;
+	MedicaoEXP service;
 	
 	@GET
 	public Response getMetricas() {
 		System.out.println("test");
 		return Response
-			.ok(service.getMetricas())
+			.ok(service.getMedicao())
 			.build();
 	}
 	
@@ -35,8 +35,8 @@ public class MetricaController {
 	@Path("/{id}")
 	public Response createMetrica(@PathParam("id") final String identifier) {
 
-		Metrica metrica=null;
-		Metrica nova = service.createMetrica(identifier);
+		Medicao Medicao=null;
+		Medicao nova = service.createMedicao(identifier);
 	
 		return Response
 				.accepted(nova)
