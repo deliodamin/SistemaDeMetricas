@@ -33,10 +33,11 @@ public class MetricaController {
 	
 	@POST
 	@Path("/{id}")
-	public Response createMetrica(@PathParam("id") final String identifier) {
-
+	public Response createMetrica(@PathParam("id") final String identifier, String IdsMedicoes ) {
+//		System.out.println(json);
+		 
 		Metrica metrica=null;
-		Metrica nova = service.createMetrica(identifier);
+		Metrica nova = service.createMetrica(identifier, IdsMedicoes);
 	
 		return Response
 				.accepted(nova)

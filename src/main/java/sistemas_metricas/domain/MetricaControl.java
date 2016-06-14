@@ -19,9 +19,13 @@ public class MetricaControl {
 	public List<Metrica> getMetricas() {
 		return this.metricaDao.getMetricas();
 	}
+	
+	public List<Metrica> getMetricasFull() {
+		return this.metricaDao.getMetricasFull();
+	}
 
-	public Metrica createMetrica(String nomeMetrica) {
-		Metrica nova = new Metrica(null,nomeMetrica, new Date());
+	public Metrica createMetrica(String nomeMetrica, String idsMedicoes) {
+		Metrica nova = new Metrica(null,nomeMetrica, new Date(), idsMedicoes );
 		metricaDao.createMetrica(nova);
 		return nova;
 	}

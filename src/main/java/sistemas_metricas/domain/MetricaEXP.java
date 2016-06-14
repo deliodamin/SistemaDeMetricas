@@ -16,10 +16,16 @@ public class MetricaEXP {
 		return repository.getMetricas();
 		
 	}
-
-	public Metrica createMetrica(String nomeMetrica) {
+	
+	public List<Metrica> getMetricasFull() {
 		
-		return repository.createMetrica(nomeMetrica);
+		return repository.getMetricasFull();
+		
+	}
+
+	public Metrica createMetrica(String nomeMetrica, String idsMedicoes) {
+		
+		return repository.createMetrica(nomeMetrica, idsMedicoes);
 		
 	}
 	
