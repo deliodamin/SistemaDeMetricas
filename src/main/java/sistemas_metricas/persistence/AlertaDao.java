@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import sistemas_metricas.domain.Medicao;
+import sistemas_metricas.domain.*;
 
 @Component
-public class MedicaoDao {
+public class AlertaDao {
 
 	private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-	public MedicaoDao(JdbcTemplate jdbcTemplate) {
+	public AlertaDao(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 	
@@ -25,20 +25,27 @@ public class MedicaoDao {
 //				Metrica.class, id);
 //	}
 	
-	public List<Medicao> getMedicao() {
+	public List<Alerta> getAlertas() {
+		
+		return this.jdbcTemplate
+			.query("select * from Alerta order by id",	new AlertaRowMapper());
+	}
+	
+	public List<Alerta> getAlertasFull() {
 		return this.jdbcTemplate
 			.query(
-				"select * from medicao order by id", 
-				new MedicaoRowMapper());
+				"select * from Alerta order by id", 
+				new AlertaRowMapper());
 	}
 
-	public int createMedicao(Medicao medicao) {
-		System.out.println(medicao.getNome());
+	public int createAlerta(Alerta Alerta) {
 		return jdbcTemplate.update(
-			"insert into medicao (nome,created) values (?,?)", 
-			medicao.getNome(),  
-			
-			medicao.getCreated());
+			"insert into Alerta (nome,created,metrica_id, valores) values (?,?,?,?)", 
+			Alerta.getNome(), 
+			Alerta.getCreated(), 
+			Alerta.getMetrica(),
+			Alerta.getValores()
+			);
 	}
 	
 }
