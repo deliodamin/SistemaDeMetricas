@@ -25,7 +25,7 @@ import sistemas_metricas.domain.*;
 @Component
 @Produces("application/json")
 @Consumes("application/json")
-@Path("Alerta")
+@Path("alerta")
 public class AlertaController {
 	
 	@Autowired
@@ -33,15 +33,24 @@ public class AlertaController {
 	
 	@GET
 	public Response getAlertas() {
-		System.out.println("test");
+		
 		return Response
 			.ok(service.getAlertas())
 			.build();
 	}
 	
-	@POST
+	@GET
 	@Path("/{id}")
-	public Response createAlerta(@PathParam("id") final String identifier, String json) throws JsonProcessingException, IOException {
+	public Response getAlerta(@PathParam("id") final String id) {
+		
+		return Response
+			.ok(service.getAlerta(id))
+			.build();
+	}
+	
+	@POST
+//	@Path("/{id}")
+	public Response createAlerta(String json) throws JsonProcessingException, IOException {
 
 		
 		ObjectMapper objectMapper = new ObjectMapper();

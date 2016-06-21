@@ -31,6 +31,12 @@ public class AlertaDao {
 			.query("select * from Alerta order by id",	new AlertaRowMapper());
 	}
 	
+	public List<Alerta> getAlerta(String id) {
+		
+		return this.jdbcTemplate
+			.query("select * from Alerta where id = '"+id+"' order by id",	new AlertaRowMapper());
+	}
+	
 	public List<Alerta> getAlertasFull() {
 		return this.jdbcTemplate
 			.query(

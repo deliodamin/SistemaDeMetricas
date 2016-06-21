@@ -10,7 +10,7 @@ import sistemas_metricas.domain.*;;
 public class MetricaRowMapperFull implements RowMapper<Metrica> {
 
 	public Metrica mapRow(ResultSet rs, int rowNum) throws SQLException {
-		return new Metrica(rs.getLong("id"),rs.getString("nome"),rs.getDate("created"),rs.getString("medicoes"));
+		return new Metrica(rs.getLong("id"),rs.getString("nome"),rs.getDate("created"),rs.getString("medicoes"),rs.getString("host"));
 	}
 	
 }

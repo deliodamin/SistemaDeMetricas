@@ -20,14 +20,19 @@ public class MetricaControl {
 		return this.metricaDao.getMetricas();
 	}
 	
+	public List<Metrica> getMetrica(String id ) {
+		return this.metricaDao.getMetrica(id);
+	}
+	
 	public List<Metrica> getMetricasFull() {
 		return this.metricaDao.getMetricasFull();
 	}
 
-	public Metrica createMetrica(String nomeMetrica, String idsMedicoes) {
-		Metrica nova = new Metrica(null,nomeMetrica, new Date(), idsMedicoes );
+	public Metrica createMetrica(String nomeMetrica, String idsMedicoes, String host) {
+		Metrica nova = new Metrica(null,nomeMetrica, new Date(), idsMedicoes, host );
 		metricaDao.createMetrica(nova);
 		return nova;
 	}
+
 
 }

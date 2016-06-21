@@ -11,7 +11,7 @@ public class AlertaRowMapper implements RowMapper<Alerta> {
 
 	public Alerta mapRow(ResultSet rs, int rowNum) throws SQLException {
 		
-		return new Alerta(rs.getLong("id"),rs.getString("nome"),rs.getDate("created"),rs.getString("metrica"),rs.getString("valores"));
+		return new Alerta(rs.getLong("id"),rs.getString("nome"),rs.getDate("created"),rs.getString("metrica_id"),rs.getString("valores"));
 	}
 	
 }

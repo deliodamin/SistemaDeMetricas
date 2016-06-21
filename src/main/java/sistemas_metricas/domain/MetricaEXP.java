@@ -17,17 +17,24 @@ public class MetricaEXP {
 		
 	}
 	
+public List<Metrica> getMetrica(String id) {
+		
+		return repository.getMetrica(id);
+		
+	}
+	
 	public List<Metrica> getMetricasFull() {
 		
 		return repository.getMetricasFull();
 		
 	}
 
-	public Metrica createMetrica(String nomeMetrica, String idsMedicoes) {
+	public Metrica createMetrica(String nomeMetrica, String idsMedicoes, String host) {
 		
-		return repository.createMetrica(nomeMetrica, idsMedicoes);
+		return repository.createMetrica(nomeMetrica, idsMedicoes, host);
 		
 	}
+
 	
 	
 }

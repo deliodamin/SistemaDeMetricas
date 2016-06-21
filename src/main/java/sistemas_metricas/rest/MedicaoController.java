@@ -1,5 +1,7 @@
 package sistemas_metricas.rest;
 
+import java.io.IOException;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -10,6 +12,10 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import sistemas_metricas.domain.*;
 
@@ -32,11 +38,19 @@ public class MedicaoController {
 	}
 	
 	@POST
-	@Path("/{id}")
-	public Response createMetrica(@PathParam("id") final String identifier) {
+	public Response createMetrica(String json) throws JsonProcessingException, IOException {
+		
+		
+		ObjectMapper objectMapper = new ObjectMapper();
+
+	
+        JsonNode jsonNode = objectMapper.readTree(json);
+        
+        String nome = jsonNode.get("nome").asText();
+
 
 		Medicao Medicao=null;
-		Medicao nova = service.createMedicao(identifier);
+		Medicao nova = service.createMedicao(nome);
 	
 		return Response
 				.accepted(nova)

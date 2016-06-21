@@ -20,8 +20,8 @@ public class AlertaControl {
 		return this.AlertaDao.getAlertas();
 	}
 	
-	public List<Alerta> getAlertasFull() {
-		return this.AlertaDao.getAlertasFull();
+	public List<Alerta> getAlerta(String id) {
+		return this.AlertaDao.getAlerta(id);
 	}
 
 	public Alerta createAlerta(String nomeAlerta, String idMetrica, String valores) {

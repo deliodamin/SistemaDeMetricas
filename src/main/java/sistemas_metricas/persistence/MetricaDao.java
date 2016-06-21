@@ -31,6 +31,12 @@ public class MetricaDao {
 			.query("select * from metrica order by id",	new MetricaRowMapper());
 	}
 	
+public List<Metrica> getMetrica(String id) {
+		
+		return this.jdbcTemplate
+			.query("select * from metrica where id = '"+ id + "'order by id",	new MetricaRowMapper());
+	}
+	
 	public List<Metrica> getMetricasFull() {
 		return this.jdbcTemplate
 			.query(
@@ -40,10 +46,12 @@ public class MetricaDao {
 
 	public int createMetrica(Metrica metrica) {
 		return jdbcTemplate.update(
-			"insert into metrica (nome,created,medicoes) values (?,?,?)", 
+			"insert into metrica (nome,created,medicoes, host) values (?,?,?,?)", 
 			metrica.getNome(), 
 			metrica.getCreated(), 
-			metrica.getMedicoes());
+			metrica.getMedicoes(),
+	     	metrica.getHost()
+	     	);
 	}
 	
 }

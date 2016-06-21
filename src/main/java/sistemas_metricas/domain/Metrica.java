@@ -8,17 +8,31 @@ public class Metrica {
 	private String nome;
 	private Date created;
 	private String medicoes;
+	private String host;
 	
 	public Metrica() {
 	}
 	
 	
 	
-	public Metrica(Long id, String nome, Date created, String medicoes) {
+	public Metrica(Long id, String nome, Date created, String medicoes, String host) {
 		this.id = id;
 		this.nome = nome;
 		this.created = created;
 		this.medicoes = medicoes;
+		this.host = host;
+	}
+
+
+
+	public String getHost() {
+		return host;
+	}
+
+
+
+	public void setHost(String host) {
+		this.host = host;
 	}
 
 

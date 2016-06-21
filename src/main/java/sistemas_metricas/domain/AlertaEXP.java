@@ -12,14 +12,13 @@ public class AlertaEXP {
 	AlertaControl repository;
 	
 	public List<Alerta> getAlertas() {
-		
 		return repository.getAlertas();
 		
 	}
 	
-	public List<Alerta> getAlertasFull() {
+	public List<Alerta> getAlerta(String id) {
 		
-		return repository.getAlertasFull();
+		return repository.getAlerta(id);
 		
 	}
 
