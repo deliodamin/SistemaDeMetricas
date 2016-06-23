@@ -17,7 +17,11 @@ public class MedicaoControl {
 	MedicaoDao medicaoDAO;
 	
 	public List<Medicao> getMedicoes() {
-		return this.medicaoDAO.getMedicao();
+		return this.medicaoDAO.getMedicoes();
+	}
+	
+	public List<Medicao> getMedicao(String id) {
+		return this.medicaoDAO.getMedicao(id);
 	}
 
 	public Medicao createMedicao(String nomeMedicao) {

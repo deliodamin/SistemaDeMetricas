@@ -11,9 +11,15 @@ public class MedicaoEXP {
 	@Autowired
 	MedicaoControl repository;
 	
-	public List<Medicao> getMedicao() {
+	public List<Medicao> getMedicoes() {
 		
 		return repository.getMedicoes();
+		
+	}
+	
+	public List<Medicao> getMedicao(String id) {
+		
+		return repository.getMedicao(id);
 		
 	}
 

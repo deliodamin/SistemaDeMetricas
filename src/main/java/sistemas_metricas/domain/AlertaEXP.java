@@ -21,6 +21,12 @@ public class AlertaEXP {
 		return repository.getAlerta(id);
 		
 	}
+	
+	public List<Alerta> getAlertaBy_MetricaID(String id) {
+		
+		return repository.getAlertaBy_MetricaID(id);
+		
+	}
 
 	public Alerta createAlerta(String nomeAlerta, String idMetrica, String valores) {
 		

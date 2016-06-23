@@ -25,10 +25,17 @@ public class MedicaoDao {
 //				Metrica.class, id);
 //	}
 	
-	public List<Medicao> getMedicao() {
+	public List<Medicao> getMedicoes() {
 		return this.jdbcTemplate
 			.query(
 				"select * from medicao order by id", 
+				new MedicaoRowMapper());
+	}
+	
+	public List<Medicao> getMedicao(String id) {
+		return this.jdbcTemplate
+			.query(
+				"select * from medicao where id = '"+id+"' order by id", 
 				new MedicaoRowMapper());
 	}
 

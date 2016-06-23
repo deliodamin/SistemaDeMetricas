@@ -23,6 +23,10 @@ public class AlertaControl {
 	public List<Alerta> getAlerta(String id) {
 		return this.AlertaDao.getAlerta(id);
 	}
+	public List<Alerta> getAlertaBy_MetricaID(String id) {
+		return this.AlertaDao.getAlertaBy_MetricaID(id);
+	}
+	
 
 	public Alerta createAlerta(String nomeAlerta, String idMetrica, String valores) {
 		Alerta nova = new Alerta(null,nomeAlerta, new Date(), idMetrica, valores );

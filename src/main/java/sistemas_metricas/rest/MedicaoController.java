@@ -31,9 +31,17 @@ public class MedicaoController {
 	
 	@GET
 	public Response getMetricas() {
-		System.out.println("test");
 		return Response
-			.ok(service.getMedicao())
+			.ok(service.getMedicoes())
+			.build();
+	}
+	
+	
+	@GET
+	@Path("/{id}")
+	public Response getMetrica(@PathParam("id") final String id) {
+			return Response
+			.ok(service.getMedicao(id))
 			.build();
 	}
 	

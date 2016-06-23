@@ -9,5 +9,6 @@ public class JerseyConfig extends ResourceConfig {
         register(MetricaController.class);
         register(AlertaController.class);
         register(MedicaoController.class);
+        register(AppController.class);
           }
 }
