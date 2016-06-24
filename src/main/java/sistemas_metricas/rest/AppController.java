@@ -20,7 +20,14 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import sistemas_metricas.core.ExecuteMedicao;
+import sistemas_metricas.core.WriteTXT;
 import sistemas_metricas.domain.*;
+import sistemas_metricas.core.WriteTXT;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+
 
 
 @Component
@@ -40,13 +47,20 @@ public class AppController {
 	
 	
 	@GET
-	public Response startApp() {
+	public Response startApp() throws Throwable {
 		ExecuteMedicao exeMedicao= new ExecuteMedicao();
 		
 		List<Metrica> lista_metricas = metrica_service.getMetricas();
 		
 		LinkedList<String> lista_medicoes = new LinkedList<>();
 		LinkedList<Integer> lista_valores = new LinkedList<>();
+		
+		WriteTXT callTXT = new WriteTXT();
+	
+		 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+         Date date = new Date();
+
+	
 		
 		exeMedicao.doMedicao(medicao_service.getMedicoes());
 		
@@ -77,15 +91,18 @@ public class AppController {
 				for(int k=0;k<condicao_alerta.length;k++){
 					int valor_medicao = exeMedicao.getMedicaoByName(lista_medicoes.get(k));
 					System.out.println(valor_medicao+" e "+condicao_alerta[k]);
+					
 					if(condicao_alerta[k].contains(">=")){
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace(">=", "").trim());
 						if(valor_medicao>=valor_condicao){
 							System.out.println("Escreve arquivo >=");
+							
 						}
 					}
 					else if(condicao_alerta[k].contains("<=")){
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace("<=", "").trim());
 						if(valor_medicao<=valor_condicao){
+							callTXT.WriteArchive(dateFormat.format(date) + " " + valor_medicao +" >= " + valor_condicao);
 							System.out.println("Escreve arquivo <=");
 						}
 					}else if(condicao_alerta[k].contains("<")){
