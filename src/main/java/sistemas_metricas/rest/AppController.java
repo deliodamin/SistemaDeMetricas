@@ -94,7 +94,7 @@ public class AppController {
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace(">=", "").trim());
 						if(valor_medicao>=valor_condicao){
 							//callTXT.WriteArchive(dateFormat.format(date) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao);
-						valor = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(k) + " Condição: " + valor_medicao +" >= " + valor_condicao + System.getProperty("line.separator");
+						valor = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(k) + " Valor medido: " + valor_medicao  + " Condição: " + valor_medicao +" >= " + valor_condicao + System.getProperty("line.separator");
 						callTXT.WriteArchive(valor);
 							System.out.println("Escreve arquivo >=");	
 							
@@ -104,7 +104,7 @@ public class AppController {
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace("<=", "").trim());
 						if(valor_medicao<=valor_condicao){
 //							callTXT.WriteArchive(dateFormat.format(date) + " Nome do Alerta AA: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao);
-							valor =  new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(k) + " Condição: " + valor_medicao +" <= " + valor_condicao + System.getProperty("line.separator");
+							valor =  new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(k)+ " Valor medido: " + valor_medicao  + " Condição: " + valor_medicao +" <= " + valor_condicao + System.getProperty("line.separator");
 							callTXT.WriteArchive(valor);
 							System.out.println("Escreve arquivo <=");
 						}
@@ -112,7 +112,7 @@ public class AppController {
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace("<", "").trim());
 						if(valor_medicao<valor_condicao){
 //							callTXT.WriteArchive(dateFormat.format(date) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao);
-							valor = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(k) + " Condição: " + valor_medicao +" < " + valor_condicao + System.getProperty("line.separator");
+							valor = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(k) + " Valor medido: " + valor_medicao  + " Condição: " + valor_medicao +" < " + valor_condicao + System.getProperty("line.separator");
 							callTXT.WriteArchive(valor);
 							System.out.println("Escreve arquivo <");
 						}
@@ -120,7 +120,7 @@ public class AppController {
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace(">", "").trim());
 						if(valor_medicao>valor_condicao){
 //							callTXT.WriteArchive(dateFormat.format(date) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao);
-							valor =  new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(k) + " Condição: " + valor_medicao +" > " + valor_condicao + System.getProperty("line.separator");
+							valor =  new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(k) + " Valor medido: " + valor_medicao  + " Condição: " + valor_medicao +" > " + valor_condicao + System.getProperty("line.separator");
 							callTXT.WriteArchive(valor);
 							System.out.println("Escreve arquivo >");
 						}
@@ -128,7 +128,7 @@ public class AppController {
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace("=", "").trim());
 						if(valor_medicao==valor_condicao){
 //							callTXT.WriteArchive(dateFormat.format(date) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao);
-							valor = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(k) + " Condição: " + valor_medicao +" = " + valor_condicao + System.getProperty("line.separator");
+							valor = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(k) + " Valor medido: " + valor_medicao  + " Condição: " + valor_medicao +" = " + valor_condicao + System.getProperty("line.separator");
 							callTXT.WriteArchive(valor);
 							System.out.println("Escreve arquivo =");
 						}
