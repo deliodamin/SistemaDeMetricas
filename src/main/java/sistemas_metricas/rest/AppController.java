@@ -56,9 +56,7 @@ public class AppController {
 		LinkedList<Integer> lista_valores = new LinkedList<>();
 		
 		WriteTXT callTXT = new WriteTXT();
-	
-		 DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-         Date date = new Date();
+		String valor = "";
 
 	
 		
@@ -95,32 +93,47 @@ public class AppController {
 					if(condicao_alerta[k].contains(">=")){
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace(">=", "").trim());
 						if(valor_medicao>=valor_condicao){
-							System.out.println("Escreve arquivo >=");
+							//callTXT.WriteArchive(dateFormat.format(date) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao);
+						valor = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao + System.getProperty("line.separator");
+						callTXT.WriteArchive(valor);
+							System.out.println("Escreve arquivo >=");	
 							
 						}
 					}
 					else if(condicao_alerta[k].contains("<=")){
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace("<=", "").trim());
 						if(valor_medicao<=valor_condicao){
-							callTXT.WriteArchive(dateFormat.format(date) + " " + valor_medicao +" >= " + valor_condicao);
+//							callTXT.WriteArchive(dateFormat.format(date) + " Nome do Alerta AA: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao);
+							valor =  new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" <= " + valor_condicao + System.getProperty("line.separator");
+							callTXT.WriteArchive(valor);
 							System.out.println("Escreve arquivo <=");
 						}
 					}else if(condicao_alerta[k].contains("<")){
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace("<", "").trim());
 						if(valor_medicao<valor_condicao){
+//							callTXT.WriteArchive(dateFormat.format(date) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao);
+							valor = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" < " + valor_condicao + System.getProperty("line.separator");
+							callTXT.WriteArchive(valor);
 							System.out.println("Escreve arquivo <");
 						}
 					}else if(condicao_alerta[k].contains(">")){
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace(">", "").trim());
 						if(valor_medicao>valor_condicao){
+//							callTXT.WriteArchive(dateFormat.format(date) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao);
+							valor =  new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" > " + valor_condicao + System.getProperty("line.separator");
+							callTXT.WriteArchive(valor);
 							System.out.println("Escreve arquivo >");
 						}
 					}else if(condicao_alerta[k].contains("=")){
 						int valor_condicao = Integer.parseInt(condicao_alerta[k].replace("=", "").trim());
 						if(valor_medicao==valor_condicao){
+//							callTXT.WriteArchive(dateFormat.format(date) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" >= " + valor_condicao);
+							valor = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss").format(new Date()) + " Nome do Alerta: "+ lista_alertas.get(j).getNome() +  " Nome da métrica: "+ lista_metricas.get(i).getNome() + " Nome da medição: " + lista_medicoes.get(j) + " Condição: " + valor_medicao +" = " + valor_condicao + System.getProperty("line.separator");
+							callTXT.WriteArchive(valor);
 							System.out.println("Escreve arquivo =");
 						}
 					}
+				
 					else {
 						
 							System.out.println("Erro formato");
@@ -134,8 +147,7 @@ public class AppController {
 			lista_valores.clear();
 			
 			
-			
-			
+
 			
 		}
 		
