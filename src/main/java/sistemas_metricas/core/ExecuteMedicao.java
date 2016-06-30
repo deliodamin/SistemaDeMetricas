@@ -19,15 +19,15 @@ import java.util.Random;
 
 public class ExecuteMedicao {
 
-	public static LinkedList<String> listaMedicoes = new LinkedList<>();
-	public static LinkedList<Integer> listaValores = new LinkedList<>();
+	public LinkedList<String> listaMedicoes = new LinkedList<>();
+	public  LinkedList<Integer> listaValores = new LinkedList<>();
 
-	public static LinkedList<String> getListaMedicoes() {
+	public LinkedList<String> getListaMedicoes() {
 		return listaMedicoes;
 	}
 
-	public static void setListaMedicoes(LinkedList<String> listaMedicoes) {
-		ExecuteMedicao.listaMedicoes = listaMedicoes;
+	public void setListaMedicoes(LinkedList<String> listaMedicoes) {
+		this.listaMedicoes = listaMedicoes;
 	}
 
 	public int getMedicaoByName(String nome) {

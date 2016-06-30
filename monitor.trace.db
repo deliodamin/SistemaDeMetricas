@@ -4998,3 +4998,6 @@ WHERE id=2"; SQL statement:
 UPDATE ALERTA 
 SET valores = '>=23,<=48"
 WHERE id=2 [42000-191]
+2016-06-30 20:04:38 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "id"; SQL statement:
+select * from medicao where id = 'id' order by id [22018-191]

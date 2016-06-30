@@ -3,6 +3,7 @@ package sistemas_metricas.rest;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -19,11 +20,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import sistemas_metricas.core.Alarmes;
 import sistemas_metricas.core.ExecuteMedicao;
 import sistemas_metricas.core.WriteTXT;
 import sistemas_metricas.domain.*;
 import sistemas_metricas.core.WriteTXT;
+
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
@@ -150,17 +155,9 @@ public class AppController {
 
 			
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+				
+		String mensagem = callTXT.ReadArchive();
+		Alarmes alarme = new Alarmes(mensagem);
 		
 		
 //		for(int i=0;i<valores.size();i++){
@@ -171,9 +168,10 @@ public class AppController {
 //			System.out.println(exeMedicao.listaMedicoes.get(i)+" = "+exeMedicao.listaValores.get(i));
 //		}
 		
-		
+		LinkedList<Alarmes> list = new LinkedList<>();
+		list.add(alarme);
 		return Response
-			.ok(medicao_service.getMedicoes())
+			.ok(list)
 			.build();
 	}
 	
