@@ -63,7 +63,6 @@ localhost:9000/app
 O histórico de alertas é armazenado no seguinte arquivo TXT:
 "C:\TEMP\Alertas.txt"
 
-A verificação é realizada a cada requisição HTTP Get em 
-http://localhost:9000/app 
+A verificação é realizada a cada requisição HTTP Get em http://localhost:9000/app 
  
 
